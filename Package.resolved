@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "SmolWeatherLib",
+        "repositoryURL": "https://github.com/jonasborsch/smol-weather-lib",
+        "state": {
+          "branch": "master",
+          "revision": "74bc99409f5229bf40f0fb2966047553a1db72c0",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}
