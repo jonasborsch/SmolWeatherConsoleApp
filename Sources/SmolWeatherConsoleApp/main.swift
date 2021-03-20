@@ -1,19 +1,48 @@
+import Foundation
 import SmolWeatherLib
 
-while(true) { main(); }
+class SmolConsoleApp {
+    let service: WeatherService;
+    
+    init?() {
+        guard CommandLine.arguments.count > 1 else {
+            print("No appid environment variable set!");
+            return nil;
+        }
 
-func main() {
-    print("Please type in a city name:")
-    let city = readLine();
+        let appid = CommandLine.arguments[1]
 
-    processInput(city)
-}
-
-
-func processInput(_ city: String?) -> Void {
-    guard let city = city else {
-        return;
+        self.service = WeatherService(appid: appid)
+        self.waitForInput()
     }
 
-    print("Weather for \(city)");
+    func run() {
+        self.waitForInput();
+    }
+
+    func waitForInput() {
+        print("Please type in a city name:")
+        let city = readLine();
+
+        self.processInput(city)
+    }
+
+
+    func processInput(_ city: String?) -> Void {
+        guard let city = city else {
+            return;
+        }
+
+        self.service.loadWeather(byCity: city) { data in 
+            print("Weather for \(city): \(data)");
+        }
+    }
+}
+
+let app = SmolConsoleApp();
+
+if app != nil {
+    while (true) {
+        app!.run()
+    }
 }

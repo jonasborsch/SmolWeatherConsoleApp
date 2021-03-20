@@ -12,13 +12,17 @@ let package = Package(
             url: "https://github.com/jonasborsch/smol-weather-lib",
             .branch("master")
         )
+        // .package(
+        //     name: "SmolWeatherLib",
+        //     path: "../smol-weather-lib"
+        // )
     ],
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
         // Targets can depend on other targets in this package, and on products in packages this package depends on.
         .target(
             name: "SmolWeatherConsoleApp",
-            dependencies: []),
+            dependencies: ["SmolWeatherLib"]),
         .testTarget(
             name: "SmolWeatherConsoleAppTests",
             dependencies: ["SmolWeatherConsoleApp"]),
