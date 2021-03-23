@@ -51,21 +51,21 @@ class SmolConsoleApp {
         // 45 deg per arrow + 22 initial
         switch (degree) {
             case 22...67:
-                return "🡕"
-            case 68...112:
-                return "🡒"
-            case 113...157:
-                return "🡖"
-            case 156...202:
-                return "🡓"
-            case 203...247:
                 return "🡗"
-            case 248...292:
+            case 68...112:
                 return "🡐"
-            case 293...337:
+            case 113...157:
                 return "🡔"
-            case 338...360, 0...21:
+            case 156...202:
                 return "🡑"
+            case 203...247:
+                return "🡕"
+            case 248...292:
+                return "🡒"
+            case 293...337:
+                return "🡖"
+            case 338...360, 0...21:
+                return "🡓"
             default:
                 // value is always between 0...360 deg
                 // will never run into default
