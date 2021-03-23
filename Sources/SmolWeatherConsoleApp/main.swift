@@ -35,8 +35,13 @@ class SmolConsoleApp {
         let semaphore = DispatchSemaphore(value: 0)
 
         self.service.loadWeather(byCity: city) { data in 
-            print("Weather for \(city): \(data)");
-            print("Wind direction: \(self.getWindArrow(forDegree: data.wind.deg))")
+            print("""
+
+                Weather for \(city): \(Int(round(data.main.temp)))°C (min. \(data.main.temp_min)°C, max. \(data.main.temp_max)°C)
+                \(data.main.humidity)% humidity
+                Wind: \(self.getWindArrow(forDegree: data.wind.deg)) | \(data.wind.speed) m/s
+
+            """)
 
             semaphore.signal()
         }
