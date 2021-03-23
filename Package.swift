@@ -6,12 +6,14 @@ import PackageDescription
 let package = Package(
     name: "SmolWeatherConsoleApp",
     dependencies: [
-        // Dependencies declare other packages that this package depends on.
+        // for prod
         .package(
             name: "SmolWeatherLib",
             url: "https://github.com/jonasborsch/smol-weather-lib",
             .branch("master")
         )
+
+        // for dev
         // .package(
         //     name: "SmolWeatherLib",
         //     path: "../smol-weather-lib"
